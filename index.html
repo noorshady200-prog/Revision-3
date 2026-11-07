@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>قاموس مراجعة الصف الثاني – اللغة العربية</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff9ea;--card:#fff;--ink:#1d2b4f;--mut:#5d6b8a;--line:#e8dcc0;--blue:#2f6fed;--sun:#ffc93c;--mint:#2fb391;--coral:#ff7a59;--soft:#eef3ff}
+@media (prefers-color-scheme:dark){:root{--bg:#141a2e;--card:#1f2842;--ink:#f3f0e6;--mut:#a9b4d0;--line:#34405f;--blue:#7da6ff;--soft:#26325a}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Cairo,Tahoma,sans-serif;line-height:1.6}
+header{padding:22px 16px 10px;text-align:center}
+h1{margin:0;font-size:clamp(1.5rem,5vw,2.3rem);font-weight:800}
+header p{margin:4px 0 0;color:var(--mut)}
+.bar{position:sticky;top:0;z-index:5;background:var(--bg);padding:10px 12px;border-bottom:2px solid var(--line)}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:8px}
+.tabs button{flex:none;border:2px solid var(--line);background:var(--card);color:var(--ink);font:600 .95rem Cairo,sans-serif;padding:6px 14px;border-radius:999px;cursor:pointer}
+.tabs button small{display:block;direction:ltr;font:400 .7rem Cairo,sans-serif;opacity:.8;line-height:1.1}
+.tabs button{line-height:1.3;border-radius:16px}
+.tabs button[aria-selected=true]{background:var(--blue);border-color:var(--blue);color:#fff}
+.tools{display:flex;gap:8px;flex-wrap:wrap}
+.tools input{flex:1 1 180px;padding:8px 12px;border:2px solid var(--line);border-radius:10px;font:1rem Cairo,sans-serif;background:var(--card);color:var(--ink)}
+.tools button{border:0;background:var(--sun);color:#3a2b00;font:700 .9rem Cairo,sans-serif;padding:8px 12px;border-radius:10px;cursor:pointer}
+button:focus-visible,input:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
+main{max-width:1100px;margin:0 auto;padding:12px}
+h2 .h2e{display:block;direction:ltr;text-align:left;font:600 .85rem Cairo,sans-serif;color:var(--mut)}
+h2{font-size:1.2rem;margin:22px 0 8px;padding-right:10px;border-right:6px solid var(--mint)}
+.note{background:var(--soft);border-radius:12px;padding:10px 14px;margin:8px 0;font-size:.95rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
+.c{position:relative;display:flex;gap:10px;align-items:center;background:var(--card);border:2px solid var(--line);border-radius:16px;padding:10px 12px}
+.e{font-size:2.4rem;flex:none;width:52px;text-align:center}
+.w{flex:1;min-width:0}
+.ar{display:block;background:none;border:0;padding:0;color:var(--ink);font:700 1.6rem/1.5 Amiri,"Noto Naskh Arabic",serif;cursor:pointer;text-align:right}
+.ar.sm{font-size:1.15rem;font-weight:400;color:var(--blue)}
+.en{direction:ltr;text-align:left;color:var(--mut);font-size:.9rem}
+.x{margin-top:6px;padding-top:6px;border-top:1px dashed var(--line)}
+.sp{flex:none;border:0;border-radius:50%;width:36px;height:36px;background:var(--mint);color:#fff;font-size:1rem;cursor:pointer}
+.sp2{background:var(--blue);font:700 .7rem Cairo,sans-serif;margin-inline-start:-4px}
+.c .sp{align-self:flex-start}
+.v{flex-direction:column;align-items:stretch}
+.v .top{display:flex;gap:10px;align-items:center}
+.cj{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.cj button{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line);background:var(--soft);color:var(--ink);border-radius:10px;padding:4px 10px;cursor:pointer;font-family:Cairo,sans-serif}
+.cj b{font:700 1.25rem Amiri,serif}
+.cj i{font-style:normal;font-size:.8rem;color:var(--mut)}
+.hide .en:not(.show){filter:blur(7px);cursor:pointer}
+.tools select{max-width:210px;padding:7px;border:2px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);font:.85rem Cairo,sans-serif}
+.src{font-size:.75rem;color:var(--mut)}
+.empty{text-align:center;color:var(--mut);padding:30px}
+@media (prefers-reduced-motion:no-preference){.c{transition:transform .15s}.c:hover{transform:translateY(-2px)}}
+</style>
+</head>
+<body>
+<header>
+<h1>📚 قاموس مراجعة الصف الثاني<small style="display:block;direction:ltr;font:600 1rem Cairo,sans-serif;color:var(--mut)">Grade 2 Arabic Revision Dictionary</small></h1>
+<p>اضغط على أي كلمة أو على 🔊 لتسمعها · Tap any word to hear it</p>
+</header>
+<div class="bar">
+<div class="tabs" id="tabs" role="tablist"></div>
+<div class="tools">
+<input id="q" type="search" placeholder="🔍 ابحث · Search">
+<input id="tin" type="text" placeholder="🌐 ترجم أي كلمة · Translate any word (عربي ⇄ English)" style="flex:1 1 200px"><button id="tgo">ترجم · Translate</button>
+<select id="vs" title="اختر الصوت · Choose voice"></select>
+<label title="السرعة · Speed" style="display:flex;align-items:center;gap:4px">🐢<input id="rt" type="range" min=".5" max="1.1" step=".05" value=".8" style="flex:none;width:90px;padding:0">🐇</label>
+<button id="all">🔊 اسمع القسم كله · Play all</button>
+<button id="stop">⏹ إيقاف · Stop</button>
+<button id="hid">🙈 إخفاء الترجمة · Hide translation</button>
+</div>
+</div>
+<div id="tout" class="note" style="display:none;margin:8px 12px;text-align:center"></div>
+<main id="out"></main>
+
+<script>
+const AR=/[\u064B-\u0652\u0640]/g,norm=s=>s.replace(AR,'').replace(/[أإآ]/g,'ا').toLowerCase();
+const C=(ar,en,emo,ex,exEn)=>({a:norm(ar),ar0:ar,e:en,s:norm(ar+' '+en+' '+(ex||'')),h:`<article class="c"><div class="e">${emo}</div><div class="w"><button class="ar" data-a="${ar}">${ar}</button><div class="en">${en}</div>${ex?`<div class="x"><button class="ar sm" data-a="${ex}">${ex}</button><div class="en">${exEn||''}</div></div>`:''}</div><button class="sp" data-a="${ar}" aria-label="استمع">🔊</button><button class="sp sp2" data-e="${en}" aria-label="English">EN</button></article>`});
+const N=a=>a.map(([x,y,z])=>C(x,y,z));
+const X=a=>a.map(([x,y,z,e,f])=>C(x,y,z,e,f));
+const V=a=>a.map(([h,en,emo])=>{const r=h.slice(1),f=[['أَنَا','أ'+r],['هُوَ',h],['هِيَ','ت'+r],['نَحْنُ','ن'+r]];if(h==='يَأْكُلُ')f[0][1]='آكُلُ';
+return{a:norm(h),ar0:h,e:en,s:norm(h+' '+en+' '+f.map(x=>x[1]).join(' ')),h:`<article class="c v"><div class="top"><div class="e">${emo}</div><div class="w"><button class="ar" data-a="${h}">${h}</button><div class="en">${en}</div></div></div><div class="cj">${f.map(([p,w])=>`<button data-a="${p} ${w}"><i>🔊 ${p}</i><b>${w}</b></button>`).join('')}</div></article>`}});
+const A=a=>a.map(([m,en,emo])=>C(m,en,emo,m.slice(0,-1)+'َةٌ','feminine form (مؤنث)'));
+const P=a=>a.map(([p,s,en,emo])=>C(p,en,emo,s,'singular (مفرد)'));
+
+const S=[
+{t:'n',title:'🏷️ الأسماء',en:'Nouns',items:N([['صَفٌّ','class / grade','🏫'],['فَصْلٌ','classroom','🔔'],['مَدْرَسَةٌ','school','🏫'],['كُرْسِيٌّ','chair','🪑'],['طَاوِلَةٌ','table / desk','🍽️'],['دَفْتَرٌ','notebook','📓'],['قَلَمٌ','pen','✏️'],['مِقْلَمَةٌ','pencil case','🖍️'],['كِتَابٌ','book','📘'],['سَبُّورَةٌ','board','📋'],['حَقِيبَةٌ','bag','🎒'],['مُعَلِّمٌ','teacher','🧑‍🏫'],['طَالِبٌ','student','🧑‍🎓'],['دَرْسٌ','lesson','📖'],['صَدِيقٌ','friend','🧑‍🤝‍🧑'],['وَقْتُ الرَّاحَةِ','break time','⏰'],['اسْمٌ','name','🆔'],['وَلَدٌ','boy','🧒'],['مَكْتَبَةٌ','library','📚'],['قِصَّةٌ','story','📕'],['حَدِيقَةٌ','garden / park','🌳'],['مَكَانٌ','place','📍'],['رِيَاضَةٌ','sport','⚽'],['بَيْتٌ','house / home','🏠'],['غُرْفَةٌ','room','🛏️'],['غُرْفَةُ الْجُلُوسِ','living room','🛋️'],['مَطْبَخٌ','kitchen','🍳'],['تِلْفَازٌ','television','📺'],['كُوبٌ','cup','🥤'],['سِكِّينٌ','knife','🔪'],['فُطُورٌ','breakfast','🥞'],['طَعَامٌ','food','🍽️'],['مَاءٌ','water','💧'],['أُسْرَتِي','my family','👨‍👩‍👧'],['أُمِّي','my mother','👩'],['أَبِي','my father','👨'],['أَخِي','my brother','👦'],['أُخْتِي','my sister','👧'],['الْأَلْوَانُ','colors','🎨'],['أَحْمَرُ','red','🔴'],['أَصْفَرُ','yellow','🟡'],['أَخْضَرُ','green','🟢'],['أَزْرَقُ','blue','🔵'],['أَبْيَضُ','white','⚪'],['أَسْوَدُ','black','⚫'],['حَافِلَةٌ','bus','🚌'],['مَلَابِسُ','clothes','👕'],['سَاعَةٌ','clock / watch / hour','⏰'],['حَدِيقَةُ الْحَيَوَانَاتِ','zoo','🦁'],['الْأَرْقَامُ','numbers','🔢'],['وَاحِدٌ','one (1)','1️⃣'],['اثْنَانِ','two (2)','2️⃣'],['ثَلَاثَةٌ','three (3)','3️⃣'],['أَرْبَعَةٌ','four (4)','4️⃣'],['خَمْسَةٌ','five (5)','5️⃣'],['سِتَّةٌ','six (6)','6️⃣'],['سَبْعَةٌ','seven (7)','7️⃣'],['ثَمَانِيَةٌ','eight (8)','8️⃣'],['تِسْعَةٌ','nine (9)','9️⃣'],['عَشَرَةٌ','ten (10)','🔟']])},
+{t:'v',title:'🏃 الأفعال المضارعة (اضغط على أنا / هو / هي / نحن)',en:'Present-tense verbs (tap I / he / she / we)',note:'💡 القاعدة: <b>أنا → أَ</b> · <b>هو → يَ</b> · <b>هي → تَ</b> · <b>نحن → نَ</b>. مثال: أَنَا <b>أَ</b>ذْهَبُ ✓ — أَنَا <b>يَ</b>ذْهَبُ ✗',items:V([['يَذْهَبُ','goes','🚶'],['يَقْرَأُ','reads','📖'],['يَجْلِسُ','sits','🪑'],['يَكْتُبُ','writes','✍️'],['يَشْرَحُ','explains','🧑‍🏫'],['يَسْتَمِعُ','listens','👂'],['يَلْعَبُ','plays','⚽'],['يَدْرُسُ','studies','📚'],['يَتَعَلَّمُ','learns','🧠'],['يَرَى','sees','👀'],['يَخْتَارُ','chooses','✅'],['يُحِبُّ','loves / likes','❤️'],['يُفَضِّلُ','prefers','⭐'],['يَعِيشُ','lives','🏠'],['يَصْحُو','wakes up','⏰'],['يَدْخُلُ','enters','🚪'],['يَأْكُلُ','eats','🍽️'],['يَشْرَبُ','drinks','🥤'],['يَرْكُضُ','runs','🏃'],['يُشَاهِدُ','watches','📺'],['يَضْحَكُ','laughs','😂'],['يَفْعَلُ','does','🎬'],['يَكُونُ','is / to be','🟰']])},
+{t:'p',title:'📍 حروف الجر',en:'Prepositions',note:'💡 بعد حرف الجر يكون الاسم <b>مجرورًا</b> (آخره كسرة): فِي الصَّفِّ · عَلَى الْكُرْسِيِّ · إِلَى الْمَدْرَسَةِ',items:X([['فِي','in','📍','أَنَا فِي الصَّفِّ.','I am in the class.'],['عَلَى','on','⬆️','أَجْلِسُ عَلَى الْكُرْسِيِّ.','I sit on the chair.'],['إِلَى','to','➡️','أَذْهَبُ إِلَى الْمَدْرَسَةِ.','I go to school.'],['مَعَ','with','🤝','أَقْرَأُ مَعَ أَصْدِقَائِي.','I read with my friends.'],['عَنْ','about','💬','كِتَابٌ عَنِ الْحَيَوَانَاتِ.','A book about animals.'],['مِنْ','from / than','↙️','الْمَكْتَبَةُ أَفْضَلُ مِنَ الْحَدِيقَةِ.','The library is better than the garden.'],['بِـ','with / in (manner)','⚡','تَرْكُضُ بِسُرْعَةٍ.','She runs quickly.'],['بَعْدَ','after','⏭️','يَشْرَبُ الْمَاءَ بَعْدَ الرِّيَاضَةِ.','He drinks water after sport.'],['عِنْدَ','at / have','🧍','مَاذَا يُوجَدُ عِنْدَ مُحَمَّدٍ؟','What does Mohamed have?']])},
+{t:'q',title:'❓ أدوات الاستفهام (سؤال ◂ جواب)',en:'Question words (question ◂ answer)',items:X([['أَيْنَ','where','📍','أَيْنَ يَعِيشُ مُحَمَّدٌ؟ ◂ فِي الْبَيْتِ.','Where does Mohamed live? In the house.'],['مَتَى','when','⏰','مَتَى يَذْهَبُ إِلَى الْمَكْتَبَةِ؟','When does he go to the library?'],['لِمَاذَا','why','🤷','لِمَاذَا يُحِبُّ غُرْفَتَهُ؟ ◂ لِأَنَّهَا جَمِيلَةٌ وَمُرَتَّبَةٌ.','Why does he love his room? Because it is beautiful and tidy.'],['مَاذَا','what (doing / thing)','🤔','مَاذَا يُوجَدُ فِي غُرْفَةِ الْجُلُوسِ؟ ◂ كُرْسِيٌّ وَطَاوِلَةٌ وَتِلْفَازٌ.','What is in the living room? A chair, a table and a TV.'],['كَيْفَ','how','🛠️','كَيْفَ تَكُونُ غُرْفَةُ الْجُلُوسِ جَمِيلَةً؟ ◂ لِأَنَّهَا مُرَتَّبَةٌ وَكَبِيرَةٌ.','How is the living room beautiful? Because it is tidy and big.'],['مَعَ مَنْ','with whom','👫','مَعَ مَنْ يَقْرَأُ مُحَمَّدٌ؟ ◂ مَعَ أَصْدِقَائِهِ.','With whom does Mohamed read? With his friends.'],['مَا','what is','🆔','مَا اسْمُ الْمُتَحَدِّثِ؟ ◂ مُحَمَّدٌ.','What is the speaker name? Mohamed.'],['أَيُّ','which','👆','فِي أَيِّ صَفٍّ يَدْرُسُ مُحَمَّدٌ؟ ◂ فِي الصَّفِّ الثَّانِي.','In which class does Mohamed study? In grade two.']])},
+{t:'a',title:'🌟 الصفات (مذكر ومؤنث)',en:'Adjectives (masculine & feminine)',note:'💡 الصفة تتبع الاسم: بَيْتٌ <b>جَمِيلٌ</b> · غُرْفَةٌ <b>جَمِيلَةٌ</b>',items:A([['جَمِيلٌ','beautiful','🌸'],['كَبِيرٌ','big','🐘'],['صَغِيرٌ','small','🐭'],['هَادِئٌ','quiet','🤫'],['مُمْتِعٌ','fun / enjoyable','🎉'],['مُرَتَّبٌ','tidy','🧹'],['رَائِعٌ','wonderful','🌟'],['قَدِيمٌ','old','🕰️'],['بَعِيدٌ','far','🛣️'],['دَافِئٌ','warm','☀️'],['كَثِيرٌ','many / much','🔢'],['مُفَضَّلٌ','favorite','⭐'],['وَحِيدٌ','alone','🧍']])},
+{t:'r',title:'🙋 الضمائر المنفصلة',en:'Subject pronouns',items:X([['أَنَا','I','🙋','أَنَا فِي الصَّفِّ الثَّانِي.','I am in grade two.'],['هُوَ','he','👦','هُوَ يَقْرَأُ الْكِتَابَ.','He reads the book.'],['هِيَ','she','👧','هِيَ تَرْكُضُ بِسُرْعَةٍ.','She runs quickly.'],['نَحْنُ','we','👨‍👩‍👧‍👦','نَحْنُ نَكْتُبُ الدَّرْسَ.','We write the lesson.']])},
+{t:'pl',title:'🔢 المفرد والجمع',en:'Singular & plural',items:P([['كُتُبٌ','كِتَابٌ','books','📚'],['أَصْدِقَاءُ','صَدِيقٌ','friends','👫'],['غُرَفٌ','غُرْفَةٌ','rooms','🛏️'],['كَرَاسِي','كُرْسِيٌّ','chairs','🪑'],['طَاوِلَاتٌ','طَاوِلَةٌ','tables','🍽️'],['قِصَصٌ','قِصَّةٌ','stories','📕']])},
+{t:'c',title:'🔀 أدوات الربط والظروف والترتيب',en:'Connectors, adverbs & ordinals',items:X([['وَ','and','➕','أَقْرَأُ وَأَلْعَبُ.','I read and play.'],['ثُمَّ','then','⏭️','ثُمَّ أَذْهَبُ إِلَى الْمَدْرَسَةِ.','Then I go to school.'],['أَيْضًا','also','➕','أَلْعَبُ أَيْضًا.','I also play.'],['لِأَنَّ','because','💡','أُحِبُّ غُرْفَتِي لِأَنَّهَا جَمِيلَةٌ.','I love my room because it is beautiful.'],['مَعًا','together','🤝','نَلْعَبُ وَنَضْحَكُ مَعًا.','We play and laugh together.'],['جِدًّا','very','💯','غُرْفَةُ الْجُلُوسِ جَمِيلَةٌ جِدًّا.','The living room is very beautiful.'],['كَثِيرًا','a lot','➕','نَضْحَكُ كَثِيرًا.','We laugh a lot.'],['جَيِّدًا','well','👍','أَسْتَمِعُ جَيِّدًا.','I listen well.'],['بِسُرْعَةٍ','quickly','⚡','تَرْكُضُ بِسُرْعَةٍ.','She runs quickly.'],['وَحْدَهُ','alone (he)','🧍','مُحَمَّدٌ يَقْرَأُ وَحْدَهُ.','Mohamed reads alone.'],['الْأَوَّلُ','first','1️⃣','الصَّفُّ الْأَوَّلُ','the first grade'],['الثَّانِي','second','2️⃣','أَنَا فِي الصَّفِّ الثَّانِي.','I am in grade two.'],['الثَّالِثُ','third','3️⃣','الصَّفُّ الثَّالِثُ','the third grade']])},
+{t:'s',title:'🧩 الأساليب والتراكيب المهمة',en:'Key expressions & structures',note:'✍️ استخدمها في الكتابة: مرحبًا… ثم… أيضًا… لأن…',items:X([['مَرْحَبًا، أَنَا اسْمِي ...','Hello, my name is ...','👋','مَرْحَبًا، أَنَا اسْمِي مُحَمَّدٌ، أَنَا فِي الصَّفِّ الثَّانِي.','Hello, I am Mohamed, I am in grade two.'],['أَنَا أُحِبُّ ... لِأَنَّهُ / لِأَنَّهَا ...','I like ... because it is ...','❤️','أَنَا أُحِبُّ غُرْفَتِي لِأَنَّهَا جَمِيلَةٌ وَمُرَتَّبَةٌ.','I love my room because it is beautiful and tidy.'],['أَنَا أَرَى ...','I see ...','👀','أَنَا أَرَى كُتُبًا كَثِيرَةً.','I see many books.'],['أَنَا أُفَضِّلُ ...','I prefer ...','⭐','أَنَا أُفَضِّلُ الْمَكْتَبَةَ.','I prefer the library.'],['فِي رَأْيِي أَنَّ ...','In my opinion ...','💭','فِي رَأْيِي أَنَّ الْمَكْتَبَةَ أَفْضَلُ مِنَ الْحَدِيقَةِ.','In my opinion the library is better than the garden.'],['... أَفْضَلُ مِنْ ...','... is better than ...','⚖️','الْمَكْتَبَةُ أَفْضَلُ مِنَ الْحَدِيقَةِ.','The library is better than the garden.'],['مَا أَجْمَلَ ...!','How beautiful ...!','😍','مَا أَجْمَلَ الْمَكْتَبَةَ!','How beautiful the library is!'],['فِي ... يُوجَدُ ...','In ... there is ...','📦','فِي الصَّفِّ سَبُّورَةٌ وَكُرْسِيٌّ وَطَاوِلَةٌ.','In the class there is a board, a chair and a table.'],['مَاذَا يُوجَدُ فِي ...؟','What is there in ...?','🔍','مَاذَا يُوجَدُ فِي الْمَطْبَخِ؟ ◂ كُوبٌ وَسِكِّينٌ.','What is in the kitchen? A cup and a knife.'],['مَا ... الْمُفَضَّلُ / الْمُفَضَّلَةُ؟','What is your favorite ...?','🥇','مَا غُرْفَتُكَ الْمُفَضَّلَةُ؟','What is your favorite room?'],['أَنَا + فِعْلٌ بِأَ','I + verb with أَ','🙋','أَنَا أَذْهَبُ إِلَى الْمَكْتَبَةِ.','I go to the library.'],['هُوَ / هِيَ / نَحْنُ + فِعْلٌ','he / she / we + verb','👥','هِيَ تَقْرَأُ وَنَحْنُ نَكْتُبُ.','She reads and we write.'],['أَجْلِسُ مَعَ ... فِي ...','I sit with ... in ...','🛋️','أَجْلِسُ مَعَ أَبِي وَأَخِي فِي غُرْفَةِ الْجُلُوسِ.','I sit with my father and my brother in the living room.']])},
+{t:'i',title:'📝 كلمات الأسئلة والتعليمات',en:'Exam instruction words',items:N([['اِسْتَخْرِجْ','extract / find','🔎'],['اِخْتَرْ','choose','✅'],['أَجِبْ','answer','💬'],['أَكْمِلْ','complete','🧩'],['رَتِّبْ','arrange','🔀'],['صَحِّحْ','correct','🖍️'],['أَعِدْ كِتَابَةَ','rewrite','🔁'],['اُكْتُبْ','write','✍️'],['عَبِّرْ','express','🗣️'],['صَرِّفْ','conjugate','🔄'],['ضَعْ عَلَامَةَ','put a mark','✔️'],['اُذْكُرْ','mention','☝️'],['اِنْسَخْ','copy','📋'],['فِقْرَةٌ','paragraph','📄'],['جُمْلَةٌ','sentence','🔤'],['كَلِمَةٌ','word','🔠'],['نَصٌّ','text','📃'],['عِبَارَةٌ','phrase','💬'],['سُؤَالٌ','question','❓'],['إِجَابَةٌ صَحِيحَةٌ','correct answer','✅'],['خَاطِئٌ','wrong','❌'],['الْمُتَحَدِّثُ','the speaker','🗣️'],['اسْمٌ (نَوْعُ الْكَلِمَةِ)','noun','🏷️'],['فِعْلٌ','verb','🏃'],['حَرْفُ جَرٍّ','preposition','📍'],['صِفَةٌ','adjective','🌟'],['ضَمِيرٌ','pronoun','🙋'],['أَدَاةُ اسْتِفْهَامٍ','question word','❓'],['مُفْرَدٌ','singular','1️⃣'],['الْإِمْلَاءُ','spelling','🔡'],['الْكِتَابَةُ','writing','🖊️']])}
+];
+const TABS=[['n', 'الأسماء 🏷️', 'Nouns'], ['v', 'الأفعال 🏃', 'Verbs'], ['p', 'حروف الجر 📍', 'Prepositions'], ['q', 'أدوات الاستفهام ❓', 'Question words'], ['a', 'الصفات 🌟', 'Adjectives'], ['r', 'الضمائر 🙋', 'Pronouns'], ['pl', 'مفرد وجمع 🔢', 'Singular & plural'], ['c', 'الربط والظروف 🔀', 'Connectors'], ['s', 'الأساليب والتراكيب 🧩', 'Structures'], ['i', 'كلمات الأسئلة 📝', 'Exam words']];
+let tab='n';
+const $=id=>document.getElementById(id),out=$('out');
+function render(){
+ const q=norm($('q').value.trim());let h='';
+ S.forEach(sec=>{if(!q&&sec.t!==tab)return;const it=sec.items.filter(i=>!q||i.s.includes(q));if(!it.length)return;
+  h+=`<h2>${sec.title}<span class="h2e">${sec.en}</span></h2>${!q&&sec.note?`<div class="note">${sec.note}</div>`:''}<div class="grid">${it.map(i=>i.h).join('')}</div>`});
+ out.innerHTML=h||'<div class="empty">😕 لا توجد نتائج</div>';
+ $('tabs').innerHTML=TABS.map(([k,l,e])=>`<button role="tab" data-t="${k}" aria-selected="${!q&&k===tab}">${l}<small>${e}</small></button>`).join('');
+}
+const clean=t=>t.replace(/◂/g,'، ').replace(/[ـ]/g,'').replace(/\s*\/\s*/g,' ، ').replace(/\.\.\./g,' ')
+ .replace(/([ًٌٍ])ّ/g,'ّ$1').replace(/ً[اى]?/g,'َنْ').replace(/ٌ/g,'ُنْ').replace(/ٍ/g,'ِنْ');
+const FEM=/zariyah|hoda|salma|laila|leila|amira|noura|mariam|maryam|fatima|female|لي?لى|مريم|زارية|هدى|سلمى|google/i;
+const arList=()=>{const v=speechSynthesis.getVoices().filter(v=>/^ar/i.test(v.lang));const f=v.filter(x=>!/EG/i.test(x.lang));return f.length?f:v};
+function bestAr(){const l=arList();return l.find(v=>/zariyah|natural|online/i.test(v.name)&&FEM.test(v.name))||l.find(v=>FEM.test(v.name))||l.find(v=>/SA/i.test(v.lang))||l[0]}
+function fill(){if(!('speechSynthesis' in window))return;const sel=$('vs'),l=arList(),cur=sel.value;
+ sel.innerHTML=l.length?l.map(v=>`<option value="${v.name}">🎓 ${v.name}</option>`).join(''):'<option value="">🔈 Voice</option>';
+ const b=bestAr();sel.value=cur&&l.some(v=>v.name===cur)?cur:(b?b.name:'')}
+function pick(l){const vs=speechSynthesis.getVoices();if(l!=='ar')return vs.find(v=>v.lang.toLowerCase().replace('_','-').startsWith('en-us'))||vs.find(v=>v.lang.toLowerCase().startsWith('en'));
+ return vs.find(v=>v.name===$('vs').value)||bestAr()}
+function say(t,l,q){const u=new SpeechSynthesisUtterance(clean(t));u.lang=l==='ar'?'ar-SA':'en-US';u.rate=l==='ar'?+$('rt').value:.9;const v=pick(l);if(v){u.voice=v;u.lang=v.lang}if(!q)speechSynthesis.cancel();speechSynthesis.speak(u)}
+async function tr(){const t=$('tin').value.trim(),box=$('tout');if(!t)return;const isAr=/[\u0600-\u06FF]/.test(t),k=norm(t);
+ let hit=null;S.forEach(sec=>sec.items.forEach(i=>{if(!hit&&(i.a===k||i.e.toLowerCase()===k))hit=i}));
+ let res,src='';
+ if(hit){res=isAr?hit.e:hit.ar0;src='📘 من القاموس'}
+ if(!res){try{box.textContent='⏳ ...';const r=await fetch('https://api.mymemory.translated.net/get?q='+encodeURIComponent(t)+'&langpair='+(isAr?'ar|en':'en|ar'));const j=await r.json();res=j.responseData.translatedText;src='🌐 ترجمة'}catch(e){res=null}}
+ if(!res){box.innerHTML=`⚠️ تعذّرت الترجمة (تحتاج إنترنت). <a target="_blank" rel="noopener" href="https://translate.google.com/?sl=${isAr?'ar&tl=en':'en&tl=ar'}&text=${encodeURIComponent(t)}">افتح مترجم جوجل</a>`;return}
+ const ar=isAr?t:res,en=isAr?res:t;
+ box.innerHTML=`<span class="src">${src}</span><div class="ar" data-a="${ar}" style="text-align:center">${ar}</div><div class="en" style="text-align:center">${en}</div>`}
+document.addEventListener('click',e=>{
+ const t=e.target.closest('[data-t]');if(t){tab=t.dataset.t;$('q').value='';render();window.scrollTo(0,0);return}
+ const a=e.target.closest('[data-a]');if(a){if('speechSynthesis' in window)say(a.dataset.a,'ar');return}
+ const n=e.target.closest('[data-e]');if(n){say(n.dataset.e,'en');return}
+ const en=e.target.closest('.en');if(en)en.classList.toggle('show');
+});
+$('q').addEventListener('input',render);
+$('all').onclick=()=>{speechSynthesis.cancel();out.querySelectorAll('.c').forEach(c=>say(c.querySelector('.ar').dataset.a,'ar',true))};
+$('tgo').onclick=async()=>{$('tout').style.display='block';await tr()};$('tin').addEventListener('keydown',e=>{if(e.key==='Enter')$('tgo').click()});
+$('stop').onclick=()=>speechSynthesis.cancel();
+$('hid').onclick=()=>{const h=document.body.classList.toggle('hide');$('hid').textContent=h?'👁️ إظهار الترجمة · Show translation':'🙈 إخفاء الترجمة · Hide translation';if(!h)document.querySelectorAll('.show').forEach(x=>x.classList.remove('show'))};
+if('speechSynthesis' in window){speechSynthesis.onvoiceschanged=fill;fill()}
+render();
+</script>
+</body>
+</html>
